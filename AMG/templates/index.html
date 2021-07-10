@@ -1,0 +1,144 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Automatic music generation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    </head>
+
+    <body>
+        <!--alert messages for signup-->
+        {% if redundant %}
+            <script>
+                window.alert('An account with this email Id already exists');
+                window.history.go(-1);
+            </script>
+        {% endif %}
+
+        {% if notredundant %}
+            <script>
+                window.alert('Registered successfully, login to continue');
+                window.history.go(-1);
+            </script>
+        {% endif %}
+
+        <!--alert messages for login-->{% if invalid %}
+            <script>
+                window.alert('Invalid Email or password');
+                window.history.go(-1);
+            </script>
+        {% endif %}
+
+        <div id="main_box" class="container">
+            <h1 style="font-family: 'Georgia'; padding-top: 0.3cm;"><b>Automatic Music Generation</b></h1>
+            <div style="padding-top: 0.5cm;">
+                <div align="right">
+                    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#SignupForm"><i class="fa fa-user"></i>&nbsp<b>Sign up</b></a>&nbsp &nbsp &nbsp
+                    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#LoginForm"><i class="fa fa-sign-in"></i>&nbsp<b>Login</b></a>
+                </div>
+                <div align="left">
+                    <a href="{% static 'Automatic Music Generation Report.pdf' %}" download><button class="btn"><i class="fa fa-download"></i>&nbsp<b>Report</b></button></a>&nbsp &nbsp &nbsp
+                    <button align="left" class="btn" onclick="window.alert('Developers won\'t reveal their identity for now')"><i class="fa fa-gears"></i>&nbsp<b>Know about the developers</b></button>&nbsp &nbsp &nbsp
+                    <button class="btn" onclick="window.alert('Contact us at: amg.fcrit2022@gmail.com')"><i class="fa fa-send"></i>&nbsp<b>Contact Us</b></button>&nbsp &nbsp &nbsp
+                </div>
+            </div>
+            <div class="row" style="padding-top: 0.3cm; padding-bottom: 0.5cm;">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="mybox">
+                        <p style="padding-left: 0.2cm; padding-right: 0.2cm;" align="justify">
+                        The development of computer technologies and smart devices brought a turning point in music creation. 
+                        Many individual and independent developers are in need of their own music for their own apps, 
+                        and increasing people try to express their own personalities with their own style of ring tones. 
+                        Therefore, the individual users are now trying to create their own music. 
+                        However, the composition of music requires deep knowledge about music which cannot be easily obtained. 
+                        Ordinary people have unfortunately little time to learn music composition techniques. 
+                        Therefore, easy and automated composition of music for individual purposes will become more and more important. 
+                        This can be achieved using Automatic Music Generation. 
+                        Professional musicians also extensively use Deep Learning for their music generation. 
+                        Deep learning has become an indispensable tool in the field of automated music generation. 
+                        Numerous deep learning architectures have been studies to perform music generation tasks
+                        Automatic Music Generation is a process of composing a short piece of music using minimum human intervention.
+                        </p>
+                    </div><br>
+                    <div align="center"><button class="glow" onclick="window.alert('Please signup and login to continue with this feature')"><i class="fa fa-music"></i>&nbsp<b>Generate Music</b></button></div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <img src="{% static 'images/pic1.png' %}" style="height:auto; width:100%">
+                </div>
+        </div>
+
+        <!--Modal for Signup Form-->
+        <div class="modal fade" id="SignupForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="background-color: rgb(43, 44, 44); color: white;">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+                        <button style="color: white;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="/signup" method="POST">
+                        {% csrf_token %}
+                        <div class="modal-body mx-3">
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right"><i class="fa fa-user">&nbsp</i>Enter your Name</label>
+                                <input type="text" id="name" name="name" class="form-control validate" required>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email"><i class="fa fa-user">&nbsp</i>Enter your email</label>
+                                <input type="email" id="emailid" name="emailid" class="form-control validate" required>
+                            </div>
+
+                            <div class="md-form mb-4">
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass"><i class="fa fa-key">&nbsp</i>Enter your password</label>
+                                <input type="password" id="pwd" name="pwd" class="form-control validate" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button type="submit" class="btn btn-default"><b>Signup</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal for Login Form-->
+        <div class="modal fade" id="LoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="background-color: rgb(43, 44, 44); color: white;">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+                        <button style="color: white;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="/login" method="POST">
+                        {% csrf_token %}
+                        <div class="modal-body mx-3">
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email"><i class="fa fa-user">&nbsp</i>Your email</label>
+                                <input type="email" id="emailid" name="emailid" class="form-control validate" required>
+                            </div>
+
+                            <div class="md-form mb-4">
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass"><i class="fa fa-key">&nbsp</i>Your password</label>
+                                <input type="password" id="pwd" name="pwd" class="form-control validate" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button type="submit" class="btn btn-default"><b>Login</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

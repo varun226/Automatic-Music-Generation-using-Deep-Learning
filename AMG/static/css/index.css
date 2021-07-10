@@ -1,0 +1,80 @@
+body{
+    background-image: url('../images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main_box{
+    margin-top: 0.6cm;
+    margin-bottom: 0.6cm;
+    border-radius: 5px;
+    background-color: aqua;
+    width: 95%;
+    box-shadow: 5px 6px 8px #202020;
+}
+
+.mybox{
+    background-color: rgba(0, 0, 0, 0.7); 
+    font-family: Helvetica; 
+    color: wheat;
+    font-size: 1.2em;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-radius: 5px;
+    height: 70%;
+  }
+  
+  /* width */
+  ::-webkit-scrollbar {
+  width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px skyblue; 
+  border-radius: 4px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+  background: rgb(84, 172, 184); 
+  border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+  background: rgb(84, 172, 184); 
+  }
+
+.btn{
+    border: 0.1cm solid white;
+    border-radius: 1cm;
+    color: white;
+    padding-left: 0.6cm;
+    padding-right: 0.6cm;
+    margin-bottom: 0.6cm;
+}
+
+.btn:hover{
+    border: 0.1cm solid white;
+    background-color: white;
+    border-radius: 1cm;
+    height: 1.5cm;
+    margin-bottom: 0.25cm;
+}
+
+.glow{
+    background-color: transparent;
+    border: 0.1cm solid purple;
+    border-radius: 1cm;
+    color: purple;
+    font-size: 2em;
+    padding-left: 0.6cm;
+    padding-right: 0.6cm;
+}
+
+.glow:hover{
+    box-shadow: 0 5px 15px rgb(212, 12, 219);
+    background-color: purple;
+    color: white;
+}

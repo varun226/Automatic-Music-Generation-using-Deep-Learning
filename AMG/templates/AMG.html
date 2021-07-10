@@ -1,0 +1,61 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Automatic music generation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/AMG.css' %}">
+    </head>
+
+    <body>
+        <!--Go back-->
+        {% if generated %}
+        <script>
+            window.history.go(-1);
+        </script>
+        {% endif %}
+        <div id="main_box" class="container">
+            <h1 style="font-family: 'Georgia'; padding-top: 0.3cm;"><b>Automatic Music Generation</b></h1>
+            <!--<div style="padding-top: 0.5cm;">
+                <div align="right">
+                    <a href="Automatic music generation.docx" download><button class="btn"><i class="fa fa-download"></i>&nbsp<b>Report</b></button></a>&nbsp &nbsp &nbsp
+                    <button align="left" class="btn" onclick="window.alert('Developers won\'t reveal their identity for now')"><i class="fa fa-gears"></i>&nbsp<b>Know about the developers</b></button>&nbsp &nbsp &nbsp
+                    <button class="btn" onclick="window.alert('You cannot contact us')"><i class="fa fa-send"></i>&nbsp<b>Contact Us</b></button>
+                </div>
+            </div>-->
+            <div class="row" style="padding-top: 0.3cm; padding-bottom: 0.5cm;">
+                <div class="col-lg-5 col-md-5 col-sm-12">
+                    <div class="mybox">
+                        <form action="/script" method="POST">
+                            {% csrf_token %}
+                            <div>
+                                <br><br>
+                                <h3 style="font-family: Tahoma;">Select the type of music you want:</h3>
+                                <select class="form-control" id="instrument" name="instrument">
+                                    <option value="blues">Blues</option>
+                                    <option value="instrumental">Instrumental</option>
+                                    <option value="piano">Piano</option>
+                                </select>
+                            </div><br><br>
+                            <div align="center">
+                                <button type="submit" class="gen"><i class="fa fa-music"></i>&nbsp<b>Generate Music</b></button><br><br>
+                                <h3 style="font-family: Tahoma;">Click on generate music to start generating random music</h3><br>
+                                    
+                            </div>
+                        </form>
+                        <div align="center">
+                            <a href="{% static 'music/music.mid' %}" download><button class="dnld"><i class="fa fa-download"></i>&nbsp<b>Download Music</b></button></a>
+                        </div>
+                    </div><br>
+                </div>
+
+                <div class="col-lg-7 col-md-7 col-sm-12">
+                    <img src="{% static 'images/musicgif.gif' %}" style="height:auto; width:100%">
+                </div>
+        </div>
+
+    </body>
+</html>

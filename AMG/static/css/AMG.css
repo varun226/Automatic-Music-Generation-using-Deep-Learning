@@ -1,0 +1,51 @@
+body{
+    background-image: url('../images/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main_box{
+    margin-top: 0.6cm;
+    margin-bottom: 0.6cm;
+    border-radius: 5px;
+    background-color: rgb(8, 173, 239);
+    width: 95%;
+    box-shadow: 5px 6px 8px #202020;
+}
+
+#instrument{
+    font-size: 1.3em;
+    font-family: Cambria;
+}
+
+.gen{
+    background-color: transparent;
+    border: 0.1cm solid purple;
+    border-radius: 1cm;
+    color: purple;
+    font-size: 2em;
+    padding-left: 0.6cm;
+    padding-right: 0.6cm;
+}
+
+.gen:hover{
+    box-shadow: 0 5px 15px rgb(212, 12, 219);
+    background-color: purple;
+    color: white;
+}
+
+.dnld{
+    background-color: transparent;
+    border: 0.1cm solid green;
+    border-radius: 1cm;
+    color: green;
+    font-size: 2em;
+    padding-left: 0.6cm;
+    padding-right: 0.6cm;
+}
+
+.dnld:hover{
+    box-shadow: 0 5px 15px rgb(11, 173, 11);
+    background-color: green;
+    color: white;
+}
